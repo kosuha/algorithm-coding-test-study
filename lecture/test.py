@@ -1,3 +1,5 @@
+### Section 1 ###
+
 # 1부터 n까지 홀수 출력
 def a(n):
     for i in range(1, n + 1):
@@ -17,6 +19,18 @@ def c(n):
         if n % i == 0:
             print(n // i)
 
-a(10)
-b(10)
-c(130)
+### Section 2 ###
+
+# k번째 약수
+def d(n, k):
+    divisors = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            divisors.append(i)
+
+    if k > len(divisors):
+        return -1
+    else:
+        return divisors[k - 1]
+
+print(d(6, 5))
