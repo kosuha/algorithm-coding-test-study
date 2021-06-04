@@ -55,3 +55,41 @@ def f6(n, k):
 
     return sums[-k]
 
+# 대표값
+def f7(arr_str):
+    arr = list(map(int, arr_str.split(" ")))
+    avg = int((sum(arr) / len(arr)) + 0.5)
+    closest = float("inf")
+    for i, n in enumerate(arr):
+        close = abs(n - avg)
+        if close < closest:
+            closest = close
+            index = i
+            num = n
+        elif close == closest:
+            if num < n:
+                index = i
+                num = n
+
+    return avg, index + 1
+
+# 정다면체
+def f8(N, M):
+    arr = []
+    for n in range(1, N + 1):
+        for m in range(1, M + 1):
+            arr.append(n + m)
+
+    max_nm_count = 0
+    for a in arr:
+        c = arr.count(a)
+        if c > max_nm_count:
+            max_nm_count = c
+            max_nm = [a]
+        elif c == max_nm_count:
+            if not a in max_nm:
+                max_nm.append(a)
+
+    return max_nm
+
+print(f8(6, 20))
