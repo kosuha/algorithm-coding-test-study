@@ -116,6 +116,20 @@ def f9(input):
 
     return maximum_num
 
+# 소수의 개수
+def f10(n):
+    result = 0
+    num_list = [0] * (n + 1)
+    
+    for i in range(2, n + 1):
+        if num_list[i] == 0:
+            result += 1
+            for j in range(i, n + 1, i):
+                num_list[j] = 1
+
+    return result
+
+# 뒤집은 소수
 def f11(input):
     def reverse(x):
         x_list = list(x)
@@ -139,5 +153,3 @@ def f11(input):
             result.append(str(reversed_n))
 
     return " ".join(result)
-
-print(f11("32 55 62 3700 250"))
