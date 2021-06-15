@@ -153,3 +153,36 @@ def f11(input):
             result.append(str(reversed_n))
 
     return " ".join(result)
+
+# 주사위 게임
+def f12(input):
+    input = input.split(' \n')
+    for i in range(len(input)):
+        input[i] = list(map(int, input[i].split(' ')))
+
+    print(input)
+
+    max_money = 0
+
+    for i in input:
+        if i.count(i[0]) == 3:
+            money = 10000 + i[0] * 1000
+        elif i.count(i[0]) == 2:
+            money = 1000 + i[0] * 100
+        elif i.count(i[1]) == 2:
+            money = 1000 + i[1] * 100
+        elif i.count(i[2]) == 2:
+            money = 1000 + i[2] * 100
+        else:
+            money = max(i) * 100
+        
+        if money > max_money:
+            max_money = money
+
+    return max_money
+
+st = '''3 3 6 
+2 2 2 
+6 2 5'''
+
+print(f12(st))
