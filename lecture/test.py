@@ -181,8 +181,21 @@ def f12(input):
 
     return max_money
 
-st = '''3 3 6 
-2 2 2 
-6 2 5'''
+def f13(input):
+    input = list(map(int, input.split(" ")))
+    
+    combo = 0
+    score = 0
 
-print(f12(st))
+    for i in input:
+        if i == 1:
+            combo += 1
+            score += combo
+        else:
+            combo = 0
+
+    return score
+    
+
+
+print(f13("1 0 1 1 1 0 0 1 1 0"))
