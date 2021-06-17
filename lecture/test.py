@@ -181,6 +181,7 @@ def f12(input):
 
     return max_money
 
+# 점수 계산
 def f13(input):
     input = list(map(int, input.split(" ")))
     
@@ -196,6 +197,26 @@ def f13(input):
 
     return score
     
+### Section 3 ###
 
+# 회문 문자열 검사
+def f14(input):
+    input = input.split("\n")
+    
+    # for i in input:
+    #     front = list(i[:len(i)//2])
+    #     front.reverse()
+    #     front = "".join(front)
+        
+    #     back = i[len(i)//2 * -1:]
+    #     if back.lower() == front.lower():
+    #         print('YES')
+    #     else:
+    #         print('NO')
 
-print(f13("1 0 1 1 1 0 0 1 1 0"))
+    for i in input:
+        i = i.lower()
+        if i == i[::-1]:
+            print('YES')
+        else:
+            print('NO')
