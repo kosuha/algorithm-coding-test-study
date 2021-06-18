@@ -220,3 +220,24 @@ def f14(input):
             print('YES')
         else:
             print('NO')
+
+# 숫자만 추출
+def f15(input):
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    input = list(input)
+
+    num = ''
+    for i in input:
+        if i in numbers: # i.isdecimal() 0~9 까지의 숫자를 찾는 함수
+            num += i
+
+    num = int(num)
+
+    divisors = []
+    for i in range(1, num + 1):
+        if num % i == 0:
+            divisors.append(i)
+
+    print(num)
+    print(len(divisors))
+
