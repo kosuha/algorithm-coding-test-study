@@ -241,3 +241,30 @@ def f15(input):
     print(num)
     print(len(divisors))
 
+# 카드 역배치
+def f16(input):
+    input = input.split("\n")
+    for i in range(len(input)):
+        input[i] = list(map(int, input[i].split(" ")))
+
+    cards = []
+    for i in range(1, 21):
+        cards.append(i)
+
+    for i in input:
+        target = cards[i[0]-1:i[1]]
+        cards[i[0]-1:i[1]] = reversed(target)
+
+    return cards
+
+sss = '''1 10
+3 3
+1 2
+3 7
+5 6
+1 9
+3 4
+5 6
+1 3
+1 9'''
+print(f16(sss))
