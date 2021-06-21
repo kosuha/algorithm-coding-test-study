@@ -247,9 +247,10 @@ def f16(input):
     for i in range(len(input)):
         input[i] = list(map(int, input[i].split(" ")))
 
-    cards = []
-    for i in range(1, 21):
-        cards.append(i)
+    cards = list(range(1, 21))
+    # cards = []
+    # for i in range(1, 21):
+    #     cards.append(i)
 
     for i in input:
         target = cards[i[0]-1:i[1]]
@@ -257,14 +258,33 @@ def f16(input):
 
     return cards
 
-sss = '''1 10
-3 3
-1 2
-3 7
-5 6
-1 9
-3 4
-5 6
-1 3
-1 9'''
-print(f16(sss))
+# 두 리스트 합치기
+def f17(a, b):
+    a = list(map(int, a.split(' ')))
+    b = list(map(int, b.split(' ')))
+    # result = a + b
+    # result.sort()
+
+    result = []
+
+    a_index = 0
+    b_index = 0
+    for _ in range(len(a) + len(b)):
+        if a_index == len(a):
+            result.append(b[b_index])
+            b_index += 1
+        elif b_index == len(b):
+            result.append(a[a_index])
+            a_index += 1
+        elif a[a_index] < b[b_index]:
+            result.append(a[a_index])
+            a_index += 1
+        else:
+            result.append(b[b_index])
+            b_index += 1
+
+    return result
+
+a = '1 3 5'
+b = '2 3 6 7 9'
+print(f17(a, b))
